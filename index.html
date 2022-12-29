@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./Assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./Assets/CSS/all.css">
+  <link rel="stylesheet" href="./Assets/CSS/style.css">
+  <script defer async src="./Assets/CarpApp/card.js"></script>
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <main>
+    <div class="container">
+
+      <div class="left-section">
+        <div class="cards">
+          <div class="card-front"  id="card-Info">
+            <img src="./Assets/images/card-logo.svg" alt="card-logo" class="card-logo">
+            <div class="card-container">
+              <img src="./Assets/images/bg-card-front.png" alt="card-front">
+              <h2 id="num">0000 0000 0000 0000</h2>
+              <div class="info-card">
+                <span id="name">Jane Appleseed</span>
+                  <span id="date">
+                    <span id="month">00</span>
+                    <span class="line">/</span>
+                    <span id="year">00</span>
+                  </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back" id="card-back">
+            <img src="./Assets/images/bg-card-back.png" alt="card=back">
+            <span id="cvc">000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <form action="#">
+          <div class="flex">
+            <label for="card-name">Cardholder Name</label>
+            <input
+                type="text" placeholder="e.g. Jane Appleseed" 
+                id="card-name" onkeyup="validateName()"/>
+                <span class="error" id="nameErr"></span>
+          </div>
+          <div class="flex">
+            <label for="card-num">Cardholder Number</label>
+            <input
+                type="tel" placeholder="e.g. 1234 5678 9123 0000"
+                minlength="16" 
+                maxlength="16" 
+                id="card-num" onkeyup="validateNum()"/>
+                <span class="error" id="numErr"></span>
+          </div>
+
+          <div class="card-details">
+            <div class="cardBox">
+              <div class="card-date flex">
+                <label for="card-date">Exp. Date (MM/YY)</label>
+                <div class="two-inputs">
+                  <div>
+                    <input type="tel" placeholder="MM" id="card-month"
+                   minlength="2" maxlength="2" onkeyup="validateInfoMonth()"/>
+                   <span class="errorInput" id="monthErr"></span>
+                  </div>
+                  <div>
+                    <input type="tel" placeholder="YY" id="card-year"
+                   minlength="2" maxlength="2" onkeyup="validateInfoYear()"/>
+                  </div>
+                </div>
+              </div>
+              <div class="flex cvc">
+                <label for="card-cvc">CVC</label>
+                <input type="tel" id="card-cvc" placeholder="e.g 123" minlength="3"  maxlength="3" onkeyup="validateCvc()"/>
+                <span class="errorInput" id="cvcErr"></span>
+              </div>
+            </div>
+          </div>
+          <button id="submit_btn" type="submit" onclick="return validateDetails()">Confirm</button>
+        </form>
+        <div class="thankbg" id="thank">
+          <div class="thank">
+            <img src="./Assets/images/icon-complete.svg" alt="Completed" />
+            <h1>Thank you!</h1>
+            <p>We've added your card details</p>
+            <a class="btn" href="index.html">Continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+ 
+</body>
+</html>
